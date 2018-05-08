@@ -1,7 +1,7 @@
 <template>
     <div class="starships">
         <router-link :to="'favourites'" class='favour_link'>Favourites</router-link>
-        <div class="starship_card" v-for='starship in starships.results'>
+        <div class="starship_card" v-for='starship in starships'>
             <router-link :to="{name: 'singleStarship', params: {id: starship.url} }">
                 <h2>Name: {{ starship.name }}</h2>
                 <h3>Model: {{ starship.model }}</h3>
@@ -16,13 +16,11 @@
     export default {
         data () {
             return {
-                starships: {
-                    results: []
-                }  
+                starships: []
             }
         },
         created: function() {
-            fetch('https://swapi.co/api/starships').then((r) => r.json()).then(json => {this.starships = json});
+            fetch('https://swapi.co/api/starships').then((r) => r.json()).then(json => {this.starships = json.results});
         }
     }
 </script>

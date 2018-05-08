@@ -19,7 +19,7 @@
                 <li>films: {{ singleStarship.films }}</li>
                 <li>created: {{ singleStarship.created }}</li>
                 <li>edited: {{ singleStarship.edited }}</li>
-                <li>url: <a href="singleStarship.url">{{ singleStarship.url }}</a></li>
+                <li>url: <a :href="singleStarship.url">{{ singleStarship.url }}</a></li>
             </ul>
             <br>
             <i class="fa fa-heart" 
